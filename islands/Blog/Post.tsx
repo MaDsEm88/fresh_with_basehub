@@ -41,7 +41,7 @@ export default function Post({ post }: { post: TPost }) { // Update prop name fr
 
    
       <div className="w-full mt-[2rem] mx-auto justify-center md:max-w-[60vw]">
-        <div className="prose dark:prose-invert hover:prose-a:text-orange-500">
+        <div className="prose dark:prose-invert hover:prose-a:text-orange-500">    
         <RichText
                 components={{
                   video: (props) => (

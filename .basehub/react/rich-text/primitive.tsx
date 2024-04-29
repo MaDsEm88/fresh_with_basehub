@@ -233,6 +233,7 @@ export const RichText = <
     <>
       {value?.map((node, index) => {
         return (
+          // @ts-ignore
           <Node
             node={node}
             key={index}
@@ -336,6 +337,7 @@ const Node = ({
 }) => {
   const children = node.content?.map((childNode, index) => {
     return (
+      // @ts-ignore
       <Node
         node={childNode}
         parent={node}
@@ -419,6 +421,7 @@ const Node = ({
       }
 
       const id = getUniqueID(
+        // @ts-ignore
         slugify(extractTextFromNode(node), {
           strict: true,
           lower: true,
@@ -631,6 +634,7 @@ const Marks = ({
   );
 };
 
+
 export function createRichTextWithDefaultComponents(
   defaultComponents: RichTextProps["components"]
 ) {
@@ -638,6 +642,7 @@ export function createRichTextWithDefaultComponents(
     props: RichTextProps<CustomBlocks>
   ): ReactNode => {
     return (
+      // @ts-ignore
       <RichText<CustomBlocks>
         {...props}
         components={{

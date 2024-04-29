@@ -29,7 +29,7 @@ export function PostPreview({
   const [copiedSlug, setCopiedSlug] = useState(false); // State to track if slug is copied
 
   const handleClickCopySlug = () => {
-    const slugToCopy = `https://localhost:8001/${slug}`;
+    const slugToCopy = `https://freshwithbasehub/${slug}`;
     copyToClipboard(slugToCopy);
     setCopiedSlug(true);
     toast.custom((t) => (
