@@ -41,7 +41,7 @@ BASEHUB_REF=<branch-name|commit-id> # defaults to your default branch
 
 "At this moment in time __basehub/react__ only works in __local__ development - it will not work in production when you push your code to for example https://deno.com/deploy". (I am working on a solution for it.)
 
-![alt text](<basehub-react error.png>)
+![alt text](<static/basehub-react error.png>)
 
 ATM you need to manually add the basehub/react code - "check inside the [.basehub/react](.basehub/react) folder". The code will render the Richtext which in this example is used in the [islands/Blog/Post](islands/Blog/Post.tsx). 
 
@@ -62,7 +62,7 @@ All the data you have created inside your basehub dashboard will be fetched and 
 
 Make sure that the block your have created in your dashboard is the same as __const { blog } = await basehub__ . and __blog.posts.items;__ So If you have named your block __Blog__ that needs to be used all the way through, otherwise it will NOT fetch the data. 
 
-![alt text](<Block in basehub is blog.png>)
+![alt text](<static/Block in basehub is blog.png>)
 
 ### More advanced usage
 
