@@ -6,13 +6,24 @@ BaseHub.com is an AI-native headless CMS designed for fast, collaborative conten
 
 ### Usage
 
-Make sure to install __"basehub"__ and __"basehub/react"_ in your deno.json
+Make sure to install __"basehub"__ and __"basehub/react"__ in your deno.json
 
 ```
 "basehub": "npm:basehub@4.0.13",
 "basehub/react": "https://esm.sh/v133/basehub/react?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
 
 ```
+
+### Install the .basehub folder
+
+Depending on the version you are on you can create the folder by following this guideline - https://basehub.com/docs/api-reference/basehub-sdk#choosing-another-output-directory-with-output or by running - 
+
+```
+npx basehub --output .basehub --ts-only
+
+```
+in the root of your project.. 
+If any issues shows up you can manually just copy and paste the [.basehub folder](.basehub) and you will be good to go...
 
 ### Create an .env file
 
@@ -55,7 +66,7 @@ Make sure that the block your have created in your dashboard is the same as __co
 
 ### More advanced usage
 
-If you are thinking about more advanced usage with for example syntax highlighting you can install and use - check out [islands/Blog/Code-Block.tsx](islands/Blog/Code-Block.tsx) for an example on how you could set it up.
+If you are thinking about more advanced usage with for example syntax highlighting you can install
 
 ```
   "@shikijs/transformers" : "https://esm.sh/v133/@shikijs/transformers@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
@@ -63,14 +74,14 @@ If you are thinking about more advanced usage with for example syntax highlighti
 
 ```
 
-which basehub is using.
+and use it like [islands/Blog/Code-Block.tsx](islands/Blog/Code-Block.tsx). (this is just an example on how to set it up)
 
 ## Final thing for you guys
 
 Inside the [utils](utils) i have created an [utils/queries.ts](utils/queries.ts). This code is a module that defines GraphQL queries and related types for interacting with in this case a blog API.
 
 
-###
+### More will be added down the line
 
 This repo is a work in progress, so please feel free to contribute.
 
