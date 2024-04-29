@@ -4,6 +4,8 @@ import CoverImage from "@/islands/Blog/Cover-Image.tsx";
 import CustomDate from "@/utils/date.tsx"; // Rename Date component to CustomDate
 import { Post as TPost } from "@/utils/queries.ts";
 import BodyImage from "./Body-Image.tsx";
+import CodeBlock from "./Code-Block.tsx";
+
 import Avatar from "./Avatar.tsx";
 
 export default function Post({ post }: { post: TPost }) { // Update prop name from `posts` to `post`
@@ -48,6 +50,7 @@ export default function Post({ post }: { post: TPost }) { // Update prop name fr
                   />
                 ),
                 img: (props) => <BodyImage {...props} />,
+               
                 h1(props) {
                   return (
                     <h1
@@ -80,6 +83,8 @@ export default function Post({ post }: { post: TPost }) { // Update prop name fr
                     />
                   );
                 },
+
+              
                 a(props) {
                   return (
                     <a
