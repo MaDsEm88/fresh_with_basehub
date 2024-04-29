@@ -14,7 +14,7 @@ Make sure to install __"basehub"__ and __"basehub/react"_ in your deno.json
 
 ```
 
-### Create an .env file and add
+### Create an .env file
 
 ```
 BASEHUB_TOKEN="add your basehub_token here"
