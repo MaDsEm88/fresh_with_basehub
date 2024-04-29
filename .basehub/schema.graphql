@@ -1,0 +1,332 @@
+type Authors implements BlockDocument & BlockList {
+  _id: String!
+  _meta: ListMeta!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+  items: [AuthorsItem!]!
+}
+
+""""""
+type AuthorsItem implements BlockDocument {
+  _id: String!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+  avatar: BlockImage!
+}
+
+input AuthorsItemFilterInput {
+  AND: AuthorsItemFilterInput
+  OR: AuthorsItemFilterInput
+  _sys_createdAt: DateFilter
+  _sys_hash: StringFilter
+  _sys_id: StringFilter
+  _sys_lastModifiedAt: DateFilter
+  _sys_slug: StringFilter
+  _sys_title: StringFilter
+}
+
+enum AuthorsItemOrderByEnum {
+  _sys_createdAt__ASC
+  _sys_createdAt__DESC
+  _sys_hash__ASC
+  _sys_hash__DESC
+  _sys_id__ASC
+  _sys_id__DESC
+  _sys_lastModifiedAt__ASC
+  _sys_lastModifiedAt__DESC
+  _sys_slug__ASC
+  _sys_slug__DESC
+  _sys_title__ASC
+  _sys_title__DESC
+  avatar__ASC
+  avatar__DESC
+}
+
+type BaseRichTextJson implements RichTextJson {
+  blocks: String!
+  content: JSON!
+  toc: JSON!
+}
+
+type BlockAudio {
+  fileName: String!
+  fileSize: Int!
+  lastModified: Float!
+  mimeType: String!
+  url: String!
+}
+
+type BlockCodeSnippet {
+  code: String!
+  html(
+    """Theme for the code snippet"""
+    theme: String = "github-dark"
+  ): String!
+  language: String!
+}
+
+type BlockColor {
+  hex: String!
+  hsl: String!
+  rgb: String!
+}
+
+interface BlockDocument {
+  _id: String!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+}
+
+type BlockDocumentSys {
+  createdAt: String!
+  hash: String!
+  id: ID!
+  lastModifiedAt: String!
+  slug: String!
+  title: String!
+}
+
+type BlockFile {
+  fileName: String!
+  fileSize: Int!
+  lastModified: Float!
+  mimeType: String!
+  url: String!
+}
+
+type BlockImage {
+  alt: String
+  aspectRatio: String!
+  fileName: String!
+  fileSize: Int!
+  height: Int!
+  lastModified: Float!
+  mimeType: String!
+  rawUrl: String!
+  url(blur: Int, brightness: Int, compression: String, contrast: Int, dpr: Int, fit: String, format: String, height: Int, quality: Int, width: Int): String!
+  width: Int!
+}
+
+interface BlockList implements BlockDocument {
+  _id: String!
+  _meta: ListMeta!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+}
+
+"""Rich text block"""
+interface BlockRichText {
+  html(
+    """
+    It automatically generates a unique id for each heading present in the HTML. Enabled by default.
+    """
+    slugs: Boolean = true
+
+    """Inserts a table of contents at the beginning of the HTML."""
+    toc: Boolean = false
+  ): String!
+  json: RichTextJson!
+  markdown: String!
+  plainText: String!
+  readingTime(
+    """Words per minute, defaults to average 183wpm"""
+    wpm: Int = 183
+  ): Int!
+}
+
+type BlockVideo {
+  aspectRatio: String!
+  fileName: String!
+  fileSize: Int!
+  height: Int!
+  lastModified: Float!
+  mimeType: String!
+  url: String!
+  width: Int!
+}
+
+type Blog implements BlockDocument {
+  _id: String!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+  authors(
+    """Filter by a field."""
+    filter: AuthorsItemFilterInput
+
+    """Limit the number of items returned. Defaults to 500."""
+    first: Int = 500
+
+    """Order by a field."""
+    orderBy: AuthorsItemOrderByEnum
+
+    """Skip the first n items."""
+    skip: Int = 0
+  ): Authors!
+  posts(
+    """Filter by a field."""
+    filter: PostsItemFilterInput
+
+    """Limit the number of items returned. Defaults to 500."""
+    first: Int = 500
+
+    """Order by a field."""
+    orderBy: PostsItemOrderByEnum
+
+    """Skip the first n items."""
+    skip: Int = 0
+  ): Posts!
+}
+
+type Body implements BlockRichText {
+  html(
+    """
+    It automatically generates a unique id for each heading present in the HTML. Enabled by default.
+    """
+    slugs: Boolean = true
+
+    """Inserts a table of contents at the beginning of the HTML."""
+    toc: Boolean = false
+  ): String!
+  json: BodyRichText!
+  markdown: String!
+  plainText: String!
+  readingTime(
+    """Words per minute, defaults to average 183wpm"""
+    wpm: Int = 183
+  ): Int!
+}
+
+type BodyRichText implements RichTextJson {
+  blocks: [BlockDocument!]!
+  content: JSON!
+  toc: JSON!
+}
+
+input DateFilter {
+  eq: DateTime
+  isAfter: DateTime
+  isBefore: DateTime
+  neq: DateTime
+  onOrAfter: DateTime
+  onOrBefore: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+scalar JSON
+
+input ListFilter {
+  isEmpty: Boolean
+  length: Int
+}
+
+type ListMeta {
+  totalCount: Int!
+}
+
+input NumberFilter {
+  eq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  neq: Float
+}
+
+type Posts implements BlockDocument & BlockList {
+  _id: String!
+  _meta: ListMeta!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+  items: [PostsItem!]!
+}
+
+""""""
+type PostsItem implements BlockDocument {
+  _id: String!
+  _slug: String!
+  _sys: BlockDocumentSys!
+  _title: String!
+  author: AuthorsItem!
+  body: Body!
+  coverImage: BlockImage!
+
+  """ISO 8601 date string."""
+  date: String!
+  excerpt: String!
+}
+
+input PostsItemFilterInput {
+  AND: PostsItemFilterInput
+  OR: PostsItemFilterInput
+  _sys_createdAt: DateFilter
+  _sys_hash: StringFilter
+  _sys_id: StringFilter
+  _sys_lastModifiedAt: DateFilter
+  _sys_slug: StringFilter
+  _sys_title: StringFilter
+  date: DateFilter
+  excerpt: StringFilter
+}
+
+enum PostsItemOrderByEnum {
+  _sys_createdAt__ASC
+  _sys_createdAt__DESC
+  _sys_hash__ASC
+  _sys_hash__DESC
+  _sys_id__ASC
+  _sys_id__DESC
+  _sys_lastModifiedAt__ASC
+  _sys_lastModifiedAt__DESC
+  _sys_slug__ASC
+  _sys_slug__DESC
+  _sys_title__ASC
+  _sys_title__DESC
+  author__ASC
+  author__DESC
+  body__ASC
+  body__DESC
+  coverImage__ASC
+  coverImage__DESC
+  date__ASC
+  date__DESC
+  excerpt__ASC
+  excerpt__DESC
+}
+
+type Query {
+  _sys: RepoSys!
+  blog: Blog!
+}
+
+type RepoSys {
+  hash: String!
+  id: ID!
+  slug: String!
+  title: String!
+}
+
+interface RichTextJson {
+  content: JSON!
+  toc: JSON!
+}
+
+input StringFilter {
+  eq: String
+  matches: StringMatchesFilter
+  notEq: String
+}
+
+input StringMatchesFilter {
+  caseSensitive: Boolean = true
+  pattern: String!
+}
