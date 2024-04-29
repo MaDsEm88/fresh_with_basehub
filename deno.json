@@ -39,7 +39,6 @@
     "react-dom": "https://esm.sh/v135/preact@10.19.2/compat",
     "basehub": "npm:basehub@4.0.13",
     "basehub/react": "https://esm.sh/v133/basehub/react?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
-    "basehub/react-rich-text": " https://esm.sh/react?pin=v135/basehub/react-rich-text?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
     "sonner": "https://esm.sh/v133/*sonner@1.3.1?alias=react:preact/compat&deps=react",
     "framer-motion": "https://esm.sh/v133/framer-motion@10.16.16?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
     "@shikijs/transformers" : "https://esm.sh/v133/@shikijs/transformers@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",

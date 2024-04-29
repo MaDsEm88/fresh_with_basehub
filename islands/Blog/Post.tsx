@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'preact/hooks';
-import { RichText } from "basehub/react";
+import { RichText } from "@/.basehub/react/index.ts";
 import CoverImage from "@/islands/Blog/Cover-Image.tsx";
 import CustomDate from "@/utils/date.tsx"; // Rename Date component to CustomDate
 import { Post as TPost } from "@/utils/queries.ts";
