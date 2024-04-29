@@ -7,7 +7,6 @@ import { basehub } from "@/.basehub/index.ts";
 import { Container } from "@/components/container.tsx";
 import { defineRoute } from "$fresh/server.ts";
 
-
 export default defineRoute(async (_req, ctx) => {
   const { blog } = await basehub({
     next: { revalidate: 60 },
@@ -15,8 +14,6 @@ export default defineRoute(async (_req, ctx) => {
 
   const heroPost = blog.posts.items[0];
   const morePosts = blog.posts.items.slice(1);
-
-
 
   return (
     <>
@@ -31,25 +28,21 @@ export default defineRoute(async (_req, ctx) => {
       <div className="overflow-hidden">
         <Container className="w-full items-center justify-center text-center max-w-auto">
           <section className="container mx-auto px-5">
-          <Intro />
-          {heroPost && (
-                <HeroPost
-                  title={heroPost._title}
-                  coverImage={heroPost.coverImage}
-                  date={heroPost.date}
-                  author={heroPost.author}
-                  slug={heroPost._slug}
-                  excerpt={heroPost.excerpt}
-                />
-              )}
-              <MoreStories morePosts={morePosts} />
-
-     
-              </section>
+            <Intro />
+            {heroPost && (
+              <HeroPost
+                title={heroPost._title}
+                coverImage={heroPost.coverImage}
+                date={heroPost.date}
+                author={heroPost.author}
+                slug={heroPost._slug}
+                excerpt={heroPost.excerpt}
+              />
+            )}
+            <MoreStories morePosts={morePosts} />
+          </section>
         </Container>
       </div>
     </>
-   );
-  });
-
-
+  );
+});

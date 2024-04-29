@@ -1,5 +1,9 @@
 import { basehub } from "@/.basehub/index.ts";
-import { allPostsQuery, getMorePosts, postBySlugQuery } from "@/utils/queries.ts";
+import {
+  allPostsQuery,
+  getMorePosts,
+  postBySlugQuery,
+} from "@/utils/queries.ts";
 import { Head } from "$fresh/runtime.ts";
 import Post from "@/islands/Blog/Post.tsx";
 import MoreStories from "../../islands/Blog/MoreBlogPosts.tsx";
@@ -20,7 +24,7 @@ export default defineRoute(async (_req, ctx) => {
 
   return (
     <>
-        <Head>
+      <Head>
         <title>Blog - {slug}</title>
         <meta
           name="description"
@@ -33,7 +37,6 @@ export default defineRoute(async (_req, ctx) => {
           <section className="container mx-auto px-5">
             <Intro />
             <Post post={post} />
-           
           </section>
         </Container>
       </div>
