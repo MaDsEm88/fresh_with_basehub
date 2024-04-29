@@ -5,8 +5,6 @@
 import * as $_slug_index from "./routes/[slug]/index.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $blog_slug_index from "./routes/blog/[slug]/index.tsx";
-import * as $blog_index from "./routes/blog/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Blog_Avatar from "./islands/Blog/Avatar.tsx";
 import * as $Blog_Body_Image from "./islands/Blog/Body-Image.tsx";
@@ -35,8 +33,6 @@ const manifest = {
     "./routes/[slug]/index.tsx": $_slug_index,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/blog/[slug]/index.tsx": $blog_slug_index,
-    "./routes/blog/index.tsx": $blog_index,
     "./routes/index.tsx": $index,
   },
   islands: {

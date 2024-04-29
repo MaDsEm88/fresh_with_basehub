@@ -32,7 +32,7 @@ BASEHUB_TOKEN="add your basehub_token here"
 
 ![alt text](<basehub-react error.png>)
 
-ATM you need to manually add the basehub/react code - "check inside the [text](.basehub/react) folder". The code will render the Richtext which in this example is used in the [text](islands/Blog/Post.tsx). 
+ATM you need to manually add the basehub/react code - "check inside the [.basehub/react](.basehub/react) folder". The code will render the Richtext which in this example is used in the [islands/Blog/Post](islands/Blog/Post.tsx). 
 
 Normally we would just use __import { RichText } from "basehub/react";__ , but for now we will use __import { RichText } from "@/.basehub/react/index.ts";__
 
@@ -47,23 +47,32 @@ So, whenever you run the build process for this Deno project, it executes basehu
 
 ### Fetching data from Basehub
 
-All the data you have created inside your basehub dashboard will be fetched and shown here [text](routes/index.tsx) & [text](routes/[slug]/index.tsx) 
+All the data you have created inside your basehub dashboard will be fetched and shown here [routes/index.tsx](routes/index.tsx) & [routes/[slug]/index.tsx](routes/[slug]/index.tsx) 
 
-Make sure that the block your have created in your dashboard is the same as __const { blog } = await basehub__ . So If you have named your block __Blog__ that needs to be used all the way through, otherwise it will NOT fetch the data. 
+Make sure that the block your have created in your dashboard is the same as __const { blog } = await basehub__ . and __blog.posts.items;__ So If you have named your block __Blog__ that needs to be used all the way through, otherwise it will NOT fetch the data. 
 
 ![alt text](<Block in basehub is blog.png>)
 
 ### More advanced usage
 
-If you are thinking about more advanced usage with for example code blocks you can install 
+If you are thinking about more advanced usage with for example syntax highlighting you can install and use - check out [islands/Blog/Code-Block.tsx](islands/Blog/Code-Block.tsx) for an example on how you could set it up.
 
 ```
   "@shikijs/transformers" : "https://esm.sh/v133/@shikijs/transformers@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
-    "shiki" : "https://esm.sh/v133/shiki@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
+  "shiki" : "https://esm.sh/v133/shiki@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
 
 ```
 
 which basehub is using.
+
+## Final thing for you guys
+
+Inside the [utils](utils) i have created an [utils/queries.ts](utils/queries.ts). This code is a module that defines GraphQL queries and related types for interacting with in this case a blog API.
+
+
+###
+
+This repo is a work in progress, so please feel free to contribute.
 
 
 
