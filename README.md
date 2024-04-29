@@ -20,9 +20,9 @@ Make sure to install __"basehub"__ and __"basehub/react"_ in your deno.json
 BASEHUB_TOKEN="add your basehub_token here"
 
 # optional
-4
-5BASEHUB_DRAFT=<true|false> # defaults to false
-6BASEHUB_REF=<branch-name|commit-id> # defaults to your default branch
+
+BASEHUB_DRAFT=<true|false> # defaults to false
+BASEHUB_REF=<branch-name|commit-id> # defaults to your default branch
 
 ```
 
