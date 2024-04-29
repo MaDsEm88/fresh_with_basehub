@@ -29,6 +29,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "markmadsen-fresh-with-74"
+          project: "freshwithbasehub"
           entrypoint: "main.ts"
           root: "."
