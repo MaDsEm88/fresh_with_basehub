@@ -4,9 +4,6 @@ What is https://basehub.com?...
 
 BaseHub.com is an AI-native headless CMS designed for fast, collaborative content management. It leverages artificial intelligence to streamline content creation and delivery, offering a user-friendly interface and efficient workflows. BaseHub supports GraphQL for content delivery and provides a type-safe SDK for seamless integration into web applications, making it a modern solution for content teams.
 
-## Check out the Demo
-
-### [fresh_with_basehub/](https://freshwithbasehub.deno.dev)
 
 ## First thing first...
 
@@ -105,7 +102,6 @@ Make sure to add __"basehub"__ and __"basehub/react"__ in your deno.json
 ```
 "basehub": "npm:basehub@4.0.13",
 "basehub/react": "https://esm.sh/v133/basehub/react?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
-
 ```
 
 #### Install the .basehub folder
@@ -114,7 +110,6 @@ Depending on the version you are on you can create the folder by following this 
 
 ```
 npx basehub --output .basehub --ts-only
-
 ```
 in the root of your project.. 
 If any issues shows up you can manually just copy and paste the [.basehub folder](.basehub) and you will be good to go...
@@ -128,7 +123,6 @@ BASEHUB_TOKEN="add your basehub_token here"
 
 BASEHUB_DRAFT=<true|false> # defaults to false
 BASEHUB_REF=<branch-name|commit-id> # defaults to your default branch
-
 ```
 
 #### Basehub/react is a work in process
@@ -146,7 +140,6 @@ Normally we would just use __import { RichText } from "basehub/react";__ , but f
 A pattern you could use is to run it in your deno.json like so - 
 ```
   "deno": { "build": { "preExec": ["basehub --output .basehub"] } },
-
 ```
 So, whenever you run the build process for this Deno project, it executes basehub --output .basehub before starting the build. This might be used to generate some necessary files or perform pre-processing tasks required for the build.
 
@@ -165,7 +158,6 @@ If you are thinking about more advanced usage with for example syntax highlighti
 ```
   "@shikijs/transformers" : "https://esm.sh/v133/@shikijs/transformers@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
   "shiki" : "https://esm.sh/v133/shiki@latest?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat",
-
 ```
 
 and use it like [islands/Blog/Code-Block.tsx](islands/Blog/Code-Block.tsx). (this is just an example on how it can be set up) - (this still need some final touches before it works 100%) - examples are coming soon... 
