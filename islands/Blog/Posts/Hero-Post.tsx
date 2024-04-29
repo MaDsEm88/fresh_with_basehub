@@ -27,7 +27,7 @@ export function HeroPost({
   const [copiedSlug, setCopiedSlug] = useState(false); // State to track if slug is copied
 
   const handleClickCopySlug = () => {
-    const slugToCopy = `https://freshwithbasehub/${slug}`;
+    const slugToCopy = `https://freshwithbasehub.deno.dev/${slug}`;
     copyToClipboard(slugToCopy);
     setCopiedSlug(true);
     toast.custom((t) => (
