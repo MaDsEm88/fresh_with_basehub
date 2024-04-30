@@ -61,7 +61,7 @@ After creating the `Authors` and `Posts` collections, you can create a new **Aut
 
 From your BaseHub repository, in the **Content** tab, inside **Blog** document, create a **New Row** from **Posts** collection (you should create at least **1 post entry**):
 
-Give it the **title**, for example `My First Post`, the **API Name** should be `myFristPost` and the **Slug** should be `my-first-post`.
+Give it the **title**, for example `My First Post`, the **API Name** should be `myFirstPost` and the **Slug** should be `my-first-post`.
 
 Then, fullfill the following fields with the data you want to display in the post.
 
@@ -85,7 +85,7 @@ Navigate to the **Commit** tab and you should see the changes you made. Add a me
 
 It's pretty similar to a Git commit, but for your content.
 
-Once you have committed your changes, you can continue by connecting your BaseHub repository to your Next.js application.
+Once you have committed your changes, you can continue by connecting your BaseHub repository to your Fresh application.
 
 ### With git clone (recommended for quick use)
 
